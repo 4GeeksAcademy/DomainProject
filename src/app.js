@@ -1,11 +1,31 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let pronouns = ["the", "our"];
+let adjectives = ["great", "big"];
+let nouns = ["jogger", "racoon"];
+let extensions = [".com", ".net", ".us", ".io"];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function generateDomainNames(pronouns, adjectives, nouns, extensions) {
+  let domainNames = [];
+  for (let i = 0; i < pronouns.length; i++) {
+    for (let j = 0; j < adjectives.length; j++) {
+      for (let k = 0; k < nouns.length; k++) {
+        for (let l = 0; l < extensions.length; l++) {
+          let domainName =
+            pronouns[i] + adjectives[j] + nouns[k] + extensions[l];
+          domainNames.push(domainName);
+        }
+      }
+    }
+  }
+  return domainNames;
+}
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+let generatedDomains = generateDomainNames(
+  pronouns,
+  adjectives,
+  nouns,
+  extensions
+);
+
+generatedDomains.forEach(domain => {
+  console.log(domain);
+});
